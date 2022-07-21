@@ -1,0 +1,20 @@
+#!/bin/perl
+
+use strict;
+use warnings;
+
+# reading protein sequences from a fasta file
+my $proteinfilename = 'xx.txt'; #whatever in your path/folder
+open(PROTEINFILE, $proteinfilename); #fh needs your attention, google filehandle if you have any questions
+
+my $protein_sequence = <PROTEINFILE>;
+close PROTEINFILE;
+
+print " This is the protein sequences: ", $protein_sequence;
+
+unless (open(PROTEINFILE, $proteinfilename)) {
+	
+	print "Cannot open file ", $proteinfilename;
+	exit;
+	
+}
