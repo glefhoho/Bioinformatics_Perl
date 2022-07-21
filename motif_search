@@ -1,0 +1,36 @@
+#!/bin/perl
+
+use strict;
+use warnings;
+
+print "Input your protein file: ";
+
+my $profilename = <STDIN>;
+chomp($profilename); #just remember to use
+
+unless (open(PROTEINFILE, $profilename)){
+	print "Cannot open file ", $profilename;
+	exit;
+}
+
+my @profilename = <PROTEINFILE>;
+close PROTEINFILE;
+
+#transfer the array into scalar
+my $protein = join( '', @profilename);
+$protein =~ s/\s//g; #remove white space
+
+#print $protein; #if you want, you can stop here to see if all works by removing the # at beginning
+
+do {
+	print " Please enter your target motif: ";
+	my $motif = <STDIN>;
+	chomp $motif;
+	if ($protein =~ /$motif/) {
+		print "Found one";
+	} else {
+		print "No, try again.";
+	}
+} until (my $motif =~ /^s*$/);
+
+exit;
