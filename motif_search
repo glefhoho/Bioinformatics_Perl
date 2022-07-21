@@ -1,5 +1,10 @@
 #!/bin/perl
 
+#	Program
+#		search target protein sequence
+#	History
+#	2022/07/21	GLEF	1st Ver
+
 use strict;
 use warnings;
 
