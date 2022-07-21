@@ -1,0 +1,25 @@
+#!/bin/perl
+
+#	Program
+#		dna->rna, and reverse complement
+#	History
+#	2022/07/21	GLEF	1st Ver
+
+use strict;
+use warnings;
+
+
+my $DNA = 'atgcccttggcctgccaacttgtaacctga';
+print "Your input DNA sequences are: ", $DNA;
+
+my $RNA = $DNA;
+$RNA =~ s/t/u/g;
+
+print "\nThe transcribing RNA sequence is: " , $RNA;
+
+my $REV_COM = $DNA;
+$REV_COM =~ tr/ACGTacgt/TGCAtgca/;
+
+print "\nreverse complement sequence is: ", $REV_COM;
+
+exit;
