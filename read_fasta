@@ -1,5 +1,10 @@
 #!/bin/perl
 
+#	Program
+#		read downloaded seq file
+#	History
+#	2022/07/21	GLEF	1st Ver
+
 use strict;
 use warnings;
 
