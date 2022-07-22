@@ -1,0 +1,62 @@
+#!/bin/perl
+
+#	Program
+#		search target protein sequence
+#	History
+#	2022/07/22	GLEF	1st Ver
+
+use strict;
+use warnings;
+
+
+print "Enter your DNA sequence file: ";
+
+my $DNA_file = <STDIN>;
+chomp ($DNA_file);
+
+unless (-e $DNA_file) {
+	print "File not exist!";
+	exit;
+}
+
+unless (open(DNAFILE, $DNA_file)) {
+	print "Cannot open file";
+	exit;
+}
+
+my @DNA = <DNAFILE>;
+close DNAFILE;
+
+my $DNA = join( '', @DNA);
+$DNA =~ s/\s//g;
+
+#initialize atgc
+my $a = 0;
+my $t = 0;
+my $g = 0;
+my $c = 0;
+my $e = 0;
+
+while ($DNA =~ /a/ig) {$a++}
+while ($DNA =~ /t/ig) {$t++}
+while ($DNA =~ /g/ig) {$g++}
+while ($DNA =~ /c/ig) {$c++}
+while ($DNA =~ /^atgc/ig) {$e++}
+
+print "A=$a  T=$t  G=$g  T=$t  error=$e\n";
+
+#write the output
+
+my $outputfile = "countdnabase";
+
+unless (open(COUNTBASE, ">$outputfile")) {
+	print "Cannot open ", $outputfile;
+	exit;
+}
+
+print COUNTBASE "A=$a  T=$t  G=$g  T=$t  error=$e\n";
+close COUNTABASE;
+
+exit;
+
+
