@@ -9,7 +9,7 @@ use strict;
 use warnings;
 
 
-my $DNA = 'atgcccttggcctgccaacttgtaacctga';
+my $DNA = 'atgcccttggcctgccaacttgtaacctga'; #change to yours, this is just example
 print "Your input DNA sequences are: ", $DNA;
 
 my $RNA = $DNA;
